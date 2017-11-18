@@ -1,8 +1,14 @@
+<!-- <%= simple_form_for :reservation, url: '#' do |f| %>
+  <%= f.cktext_area :arrival_date %>
+  <%= f.input :departure_date %>
+  <%= f.input :guests %>
+<% end %> -->
+
 <div class="homepage jumbotron">
   <div class="container">
     <h1>TRUNG TÂM IPHONE DR.TÁO</h1>
     <p>Cam kết sử dụng linh kiện chính hãng, thực hiện sửa chữa trực tiếp, khách hàng ngồi chờ lấy liền, bảo hành trọn đời.</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">SỬA NGAY</a></p>
+    <p><a class="btn btn-success btn-lg" href="#" role="button">SỬA NGAY</a></p>
   </div>
 </div>
 
@@ -19,7 +25,7 @@
               <h3><%= product.name %></h3>
               <p class="price"><%= product.price %></p>
               <p><%= product.description %></p>
-              <p><a href="#" class="btn btn-primary" role="button">Xem</a></p>
+              <p><a href="#" class="btn btn-success" role="button">Xem</a></p>
             </div>
           </div>
         </div>
@@ -38,7 +44,7 @@
               <h3><%= product.name %></h3>
               <p class="price"><%= product.price %></p>
               <p><%= product.description %></p>
-              <p><a href="#" class="btn btn-primary" role="button">Xem</a></p>
+              <p><a href="#" class="btn btn-success" role="button">Xem</a></p>
             </div>
           </div>
         </div>
@@ -57,7 +63,7 @@
               <h3><%= product.name %></h3>
               <p class="price"><%= product.price %></p>
               <p><%= product.description %></p>
-              <p><a href="#" class="btn btn-primary" role="button">Xem</a></p>
+              <p><a href="#" class="btn btn-success" role="button">Xem</a></p>
             </div>
           </div>
         </div>
@@ -67,14 +73,21 @@
 
   <h2>iPhone cũ</h2>
   <div class="products">
-    <% @iphone_cu_products.each do |product| %>
-      <div class="product">
-        <h3 class="name"><%= product.name %></h3>
-        <p class="image"><%= image_tag product.image.url(:medium) %></p>
-        <p class="price"><%= product.price %></p>
-        <p class="description"><%= product.description %></p>
-      </div>
-    <% end %>
+    <div class="row">
+      <% @iphone_cu_products.each do |product| %>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag product.image.url(:medium) %>
+            <div class="caption">
+              <h3><%= product.name %></h3>
+              <p class="price"><%= product.price %></p>
+              <p><%= product.description %></p>
+              <p><a href="#" class="btn btn-success" role="button">Xem</a></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 </div>

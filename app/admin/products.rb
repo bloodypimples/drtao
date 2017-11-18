@@ -16,9 +16,9 @@ ActiveAdmin.register Product do
       input :name
       input :price
       input :category
+      input :description, :as => :ckeditor
+      input :image
     end
-    inputs 'Description', :description
-    input :image
     actions
   end
 end
