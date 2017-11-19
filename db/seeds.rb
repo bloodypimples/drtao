@@ -19,4 +19,11 @@ end
     description: Faker::Lorem.paragraph(5),
     category_id: rand(1..7)
   )
+
+  Article.create(
+    title: Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraph(5),
+    user_id: 1,
+    body: 'BODY HTML CONTENT'
+  )
 end

@@ -11,7 +11,7 @@ ActiveAdmin.register Product do
     actions
   end
 
-  form title: 'A custom title' do |f|
+  form do |f|
     inputs 'Details' do
       input :name
       input :price
