@@ -1,0 +1,49 @@
+<% content_for :title, "SẢN PHẨM - HỆ THỐNG SỬA IPHONE DR. TÁO" %>
+
+<div class="products index">
+
+  <div class="homepage jumbotron">
+
+    <div class="container">
+      <h1>SẢM PHẨM</h1>
+      <p>Các sản phẩm mới nhất hiện đang có mặt tại Dr.Táo</p>
+    </div>
+
+  </div>
+
+  <div class="container-fluid">
+
+    <div class="container">
+
+      <div class="row off_canvas">
+
+        <div class="col-xs-6 col-md-2 categories">
+          <h2>Danh mục</h2>
+          <% @categories.each do |c| %>
+            <p><%= link_to c.name, san_pham_path(:'danh-mục' => urlify(c.name)) %></p>
+          <% end %>
+        </div>
+
+        <div class="col-xs-6 col-md-10">
+          <% @products_array.size.times do |i| %>
+            <div class="row">
+              <% @products_array[i].each do |product| %>
+                <% if product %>
+                  <div class="col-md-4">
+                    <%= render 'partials/product', product: product %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+
+          Trang: <%= will_paginate @products, param_name: "trang" %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

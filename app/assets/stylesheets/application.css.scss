@@ -130,6 +130,10 @@ p{
         color: white;
         padding: 10px 0px;
         font-size: 18px;
+        &:hover{
+          background-color: #449d44;
+          border-color: #398439;
+        }
       }
     }
   }
@@ -167,6 +171,27 @@ p{
       }
     }
   }
+}
+.products.index{
+  .categories{
+    text-align: right;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    h2{
+      background-color: #e7e7e7;
+      color: #777;
+      margin: 0px;
+      margin-left: -15px;
+      margin-right: -15px;
+      box-sizing: border-box;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+  }
+}
+.next_page, .previous_page{
+  display: none;
 }
 @media (max-width: 768px) {
   .news{

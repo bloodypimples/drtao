@@ -16,3 +16,6 @@
 //= require ckeditor/init
 //= require jquery3
 //= require bootstrap-sprockets
+$(document).ready(function () {
+  
+});
