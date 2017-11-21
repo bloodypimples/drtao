@@ -17,14 +17,16 @@
 
       <div class="row off_canvas">
 
-        <div class="col-xs-6 col-md-2 categories">
+        <div class="col-xs-12 col-md-2 categories">
           <h2>Danh mục</h2>
-          <% @categories.each do |c| %>
-            <p><%= link_to c.name, san_pham_path(:'danh-mục' => urlify(c.name)) %></p>
-          <% end %>
+          <div class="items">
+            <% @categories.each do |c| %>
+              <p><%= link_to c.name, san_pham_path(:'danh-mục' => urlify(c.name)) %></p>
+            <% end %>
+          </div>
         </div>
 
-        <div class="col-xs-6 col-md-10">
+        <div class="col-xs-12 col-md-10">
           <% @products_array.size.times do |i| %>
             <div class="row">
               <% @products_array[i].each do |product| %>

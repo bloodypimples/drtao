@@ -2,6 +2,8 @@
 @import "bootstrap";
 
 $lime: #95d600;
+$hover-bg: #449d44;
+$hover_border: #398439;
 $blue: #002f87;
 $bootstrap_grey: #e7e7e7;
 
@@ -13,6 +15,7 @@ a{
 }
 h1{
   font-size: 64px;
+  line-height: 1.2;
 }
 h1, h2{
   font-weight: 300;
@@ -199,6 +202,41 @@ p{
       display: block;
       .sidebar{
         padding: 20px 15px;
+      }
+    }
+  }
+}
+@media (max-width: 992px){
+  .products.index{
+    overflow: hidden;
+    .container-fluid{
+      .row{
+        position: relative;
+        .col-xs-12{
+          &.categories{
+            user-select: none;
+            h2{
+              background-color: #95d600;
+              color: white;
+              overflow: hidden;
+              margin-bottom: 0px;
+              box-sizing: border-box;
+              cursor: pointer;
+              &:hover{
+                background-color: $hover_bg;
+              }
+            }
+            .items{
+              margin-top: 10px;
+              display: none;
+              &.visible{
+                display: block;
+              }
+            }
+            margin-bottom: 30px;
+            text-align: center;
+          }
+        }
       }
     }
   }

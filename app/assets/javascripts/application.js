@@ -17,5 +17,7 @@
 //= require jquery3
 //= require bootstrap-sprockets
 $(document).ready(function () {
-  
+  $(document).on('click', '.categories h2' , function(){
+    $('.categories .items').toggleClass("visible");
+  })
 });
