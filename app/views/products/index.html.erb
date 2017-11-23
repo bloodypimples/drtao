@@ -1,6 +1,6 @@
-<% content_for :title, "SẢN PHẨM - HỆ THỐNG SỬA IPHONE DR. TÁO" %>
+<% content_for :title, title("SẢN PHẨM") %>
 
-<div class="products index">
+<div class="products index page">
 
   <div class="homepage jumbotron">
 
@@ -21,7 +21,7 @@
           <h2>Danh mục</h2>
           <div class="items">
             <% @categories.each do |c| %>
-              <p><%= link_to c.name, san_pham_path(:'danh-mục' => urlify(c.name)) %></p>
+              <p><%= link_to c.name, san_pham_path(:'danh-mục' => en_url(c.name)) %></p>
             <% end %>
           </div>
         </div>

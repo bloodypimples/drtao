@@ -2,8 +2,8 @@
   <%= image_tag product.image.url(:medium) %>
   <div class="caption">
     <h3><%= product.name %></h3>
-    <p class="price"><%= product.price %></p>
-    <p><%= product.description %></p>
-    <p><a href="<%= san_pham_show_path(product) %>" class="btn btn-success" role="button">Xem</a></p>
+    <p class="price"><%= get_price(product.price) %></p>
+    <p><%= product.description.html_safe %></p>
+    <p><a href="<%= san_pham_show_path(en_url(product.name)) %>" class="btn btn-success" role="button">Xem</a></p>
   </div>
 </div>

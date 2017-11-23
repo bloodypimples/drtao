@@ -13,15 +13,16 @@ User.create(
 200.times do
   Product.create(
     name: Faker::Commerce.product_name,
-    price: '$ ' + Faker::Commerce.price.to_s,
+    price: Faker::Commerce.price,
     description: Faker::Lorem.paragraph(5),
-    category_id: rand(1..7)
+    category_id: rand(1..7),
+    body: Faker::Lorem.paragraphs(rand(5..10), true).join('<br><br>')
   )
 
   Article.create(
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph(5),
     user_id: 1,
-    body: 'BODY HTML CONTENT'
+    body: Faker::Lorem.paragraphs(rand(5..10), true).join('<br><br>')
   )
 end

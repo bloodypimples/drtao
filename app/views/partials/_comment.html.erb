@@ -1,0 +1,11 @@
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <%= gravatar_for(comment.email) %>
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= comment.name %></h4>
+    <p class="comment-body"><%= comment.body %></p>
+  </div>
+</div>

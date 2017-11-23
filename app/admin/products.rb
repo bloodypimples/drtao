@@ -1,6 +1,6 @@
 ActiveAdmin.register Product do
 
-  permit_params :name, :price, :description, :category_id, :image
+  permit_params :name, :price, :description, :category_id, :image, :body
 
   index do
     selectable_column
@@ -14,9 +14,10 @@ ActiveAdmin.register Product do
   form do |f|
     inputs 'Details' do
       input :name
-      input :price
+      input :price, label: "price (₫)"
       input :category
       input :description, :as => :ckeditor
+      input :body, :as => :ckeditor
       input :image
     end
     actions
