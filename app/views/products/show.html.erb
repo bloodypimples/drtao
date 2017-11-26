@@ -34,7 +34,7 @@
       <div class="row new_comment" id="binh-luan-moi">
         <h2>Đăng bình luận</h2>
 
-        <%= render "partials/comment_form" %>
+        <%= render "partials/comment_form", thing_type: :product, thing_id: @product.name %>
       </div>
     </div>
 

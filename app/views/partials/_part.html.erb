@@ -1,0 +1,9 @@
+<div class="thumbnail">
+  <%= image_tag part.image.url(:medium) %>
+  <div class="caption">
+    <h3><%= part.name %></h3>
+    <p class="price"><%= get_price(part.price) %></p>
+    <p><%= part.description.html_safe %></p>
+    <p><a href="<%= linh_kien_show_path(en_url(part.name)) %>" class="btn btn-success" role="button">Xem</a></p>
+  </div>
+</div>

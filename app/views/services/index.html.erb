@@ -1,2 +1,51 @@
-<h1>Services#index</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+<% content_for :title, title("DỊCH VỤ") %>
+
+<div class="services index page">
+
+  <div class="homepage jumbotron">
+
+    <div class="container">
+      <h1>DỊCH VỤ</h1>
+      <p>Các sản phẩm mới nhất hiện đang có mặt tại Dr.Táo</p>
+    </div>
+
+  </div>
+
+  <div class="container-fluid">
+
+    <div class="container">
+
+      <div class="row off_canvas">
+
+        <div class="col-xs-12 col-md-2 categories">
+          <h2>Danh mục</h2>
+          <div class="items">
+            <% @categories.each do |c| %>
+              <p><%= link_to c.name, dich_vu_path(:'danh-mục' => en_url(c.name)) %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-10">
+          <% @services_array.size.times do |i| %>
+            <div class="row">
+              <% @services_array[i].each do |service| %>
+                <% if service %>
+                  <div class="col-md-4">
+                    <%= render 'partials/service', service: service %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+
+          Trang: <%= will_paginate @services, param_name: "trang" %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
