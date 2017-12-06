@@ -234,7 +234,7 @@ p{
   }
 }
 @media (max-width: 992px){
-  .products.index{
+  .products.index, .services.index, .parts.index{
     overflow: hidden;
     .container-fluid{
       .row{
