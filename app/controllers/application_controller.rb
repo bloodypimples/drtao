@@ -16,8 +16,16 @@ class ApplicationController < ActionController::Base
   end
   helper_method :require_signin!
 
-  def get_products_from_category(category_name, limit)
-    Category.find_by(name: category_name).products.order("created_at desc").limit(limit)
+  def get_from_category(category_name, limit, thing)
+    @category = Category.find_by(name: category_name)
+    
+    if thing == "products"
+      @products = Product.where(category_id: @category).order("created_at desc").limit(limit)
+    elsif thing == "services"
+      @services = Service.where(category_id: @category).order("created_at desc").limit(limit)
+    elsif thing == "parts"
+      @parts = Part.where(category_id: @category).order("created_at desc").limit(limit)
+    end
   end
 
   def cp(path)

@@ -1,5 +1,5 @@
 # create product cateories
-@product_categories = ["iPhone mới", "iPhone cũ", "Thay màn hình", "Sửa MacBook", "Sửa iPad", "Sửa iPhone", "Ép kính iPhone"]
+@product_categories = ["iPhone mới", "iPhone cũ", "Macbook", "iPad", "iMac", "Loa", "Samsung"]
 
 @product_categories.each do |category|
   Category.create(name: category, for: "Products")

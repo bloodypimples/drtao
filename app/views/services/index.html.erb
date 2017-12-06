@@ -39,7 +39,9 @@
             </div>
           <% end %>
 
-          Trang: <%= will_paginate @services, param_name: "trang" %>
+          <% if @count > 15 %>
+            Trang: <%= will_paginate @services, param_name: "trang" %>
+          <% end %>
         </div>
 
       </div>
