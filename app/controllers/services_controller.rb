@@ -3,17 +3,18 @@ class ServicesController < ApplicationController
 
   def index
     @categories = Category.where(for: "Services")
+    @per_page = 15
 
     if params[:'danh-mục'].blank?
       @count = Service.count
-      @services = Service.paginate(:page => params[:trang], :per_page => 15).order("created_at desc")
+      @services = Service.paginate(:page => params[:trang], :per_page => @per_page).order("created_at desc")
       @services_array = @services.in_groups_of(3)
     else
       @category_name = de_url(params[:'danh-mục'])
       @category = Category.find_by("lower(name) = ?", @category_name)
       @category_id = @category.id
       @count = Service.where(category: @category_id).count
-      @services = Service.where(category: @category_id).paginate(:page => params[:trang], :per_page => 15).order("created_at desc")
+      @services = Service.where(category: @category_id).paginate(:page => params[:trang], :per_page => @per_page).order("created_at desc")
       @services_array = @services.in_groups_of(3)
     end
   end

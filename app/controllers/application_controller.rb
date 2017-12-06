@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def get_from_category(category_name, limit, thing)
     @category = Category.find_by(name: category_name)
-    
+
     if thing == "products"
       @products = Product.where(category_id: @category).order("created_at desc").limit(limit)
     elsif thing == "services"

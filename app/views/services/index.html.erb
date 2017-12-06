@@ -39,7 +39,7 @@
             </div>
           <% end %>
 
-          <% if @count > 15 %>
+          <% if @count > @per_page %>
             Trang: <%= will_paginate @services, param_name: "trang" %>
           <% end %>
         </div>
