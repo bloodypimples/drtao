@@ -22,6 +22,7 @@ end
 # create admins
 User.create(
   email: "hieudoan2609@gmail.com",
+  name: "Hieu",
   password: "secret",
   password_confirmation: "secret"
 )
