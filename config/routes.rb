@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'dịch-vụ/:id', to: "services#show", as: "dich-vu-show"
   get 'linh-kiện', to: "parts#index", as: "linh-kien"
   get 'linh-kiện/:id', to: "parts#show", as: "linh-kien-show"
-  get 'tin-tuc', to: "news#index"
-  get 'tin-tuc/:id', to: "news#show", as: "tin-tuc-show"
+  get 'tin-tức', to: "news#index", as: "tin-tuc"
+  get 'tin-tức/:id', to: "news#show", as: "tin-tuc-show"
   post ':thing_type/:thing_id/comments', to: "comments#create", as: "comments"
 end
