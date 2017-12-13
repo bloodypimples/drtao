@@ -10,6 +10,9 @@ class CommentsController < ApplicationController
     elsif params[:thing_type] == 'part'
       @part = Part.find_by("lower(name) = ?", de_url(params[:thing_id]))
       @comment.part = @part
+    elsif params[:thing_type] == 'article'
+      @article = Article.find_by("lower(title) = ?", de_url(params[:thing_id]))
+      @comment.article = @article
     end
 
     if @comment.save

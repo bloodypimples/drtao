@@ -17,9 +17,9 @@
     <h2>Ép kính iPhone</h2>
     <div class="products">
       <div class="row">
-        <% @ep_kinh_iphone_services.each do |product| %>
+        <% @ep_kinh_iphone_services.each do |service| %>
           <div class="col-md-3">
-            <%= render 'partials/product', product: product %>
+            <%= render 'partials/service', service: service %>
           </div>
         <% end %>
       </div>
@@ -28,9 +28,9 @@
     <h2>Sửa iPhone</h2>
     <div class="products">
       <div class="row">
-        <% @sua_iphone_services.each do |product| %>
+        <% @sua_iphone_services.each do |service| %>
           <div class="col-md-3">
-            <%= render 'partials/product', product: product %>
+            <%= render 'partials/service', service: service %>
           </div>
         <% end %>
       </div>

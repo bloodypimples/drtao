@@ -5,7 +5,7 @@ ActiveAdmin.register Article do
     article.user = current_user
   end
 
-  permit_params :title, :description, :user_id, :body
+  permit_params :title, :description, :user_id, :body, :image
 
   index do
     selectable_column

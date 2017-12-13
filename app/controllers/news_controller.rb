@@ -1,4 +1,6 @@
 class NewsController < ApplicationController
+  before_action :set_article, only: [:show]
+
   def index
     @per_page = 10
     @count = Article.count
@@ -6,5 +8,11 @@ class NewsController < ApplicationController
   end
 
   def show
+  end
+
+  private
+
+  def set_article
+    @article = Article.find_by("lower(title) = ?", de_url(params[:id]))
   end
 end

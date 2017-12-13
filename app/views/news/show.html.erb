@@ -1,2 +1,60 @@
-<h1>News#show</h1>
-<p>Find me in app/views/news/show.html.erb</p>
+<% content_for :title, title(@article.title.mb_chars.upcase) %>
+
+<div class="news show page">
+
+  <div class="homepage jumbotron">
+
+    <%= image_tag @article.image.url(:large) %>
+
+    <div class="container">
+      <h1><%= @article.title %></h1>
+      <p class="author">Đăng bởi: <%= @article.user.name %>, <%= time_ago_in_words(@article.created_at) %> trước</p>
+    </div>
+
+  </div>
+
+  <div class="container-fluid body">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <%=raw @article.body %>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row comments" id="binh-luan">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <h2>Bình luận (<%= @article.comments.count %>)</h2>
+
+          <% if @article.comments.count > 0 %>
+            <% @article.comments.each do |comment| %>
+              <%= render 'partials/comment', comment: comment %>
+            <% end %>
+          <% else %>
+            <h4 class="no_comments">Chưa có bình luận nào.</h4>
+          <% end %>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+
+      <div class="row new_comment" id="binh-luan-moi">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <h2>Đăng bình luận</h2>
+
+          <%= render "partials/comment_form", thing_type: :article, thing_id: @article.title %>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
