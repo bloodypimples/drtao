@@ -57,7 +57,7 @@ User.create(
 
   # create articles
   Article.create(
-    title: Faker::Lorem.sentence,
+    title: Faker::Lorem.sentence.tr('.', ''),
     description: Faker::Lorem.paragraph(5),
     user_id: 1,
     body: Faker::Lorem.paragraphs(rand(5..10), true).join('<br><br>')

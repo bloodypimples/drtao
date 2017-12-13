@@ -1,4 +1,10 @@
 ActiveAdmin.register Article do
+  before_create do |article|
+    # stripped unpermitted characters
+    article.title = article.title.tr('.', '')
+    article.user = current_user
+  end
+
   permit_params :title, :description, :user_id, :body
 
   index do
