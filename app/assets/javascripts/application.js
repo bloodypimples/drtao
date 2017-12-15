@@ -16,8 +16,20 @@
 //= require ckeditor/init
 //= require jquery3
 //= require bootstrap-sprockets
+function smooth_scroll(trigger_element, target_element){
+  $(document).on('click', trigger_element, function(e){
+    e.preventDefault();
+
+    $('html, body').animate({
+      scrollTop: $(target_element).offset().top
+    }, 500);
+  })
+}
+
 $(document).ready(function () {
   $(document).on('click', '.categories h2' , function(){
     $('.categories .items').toggleClass("visible");
   })
+
+  smooth_scroll("a[href='#contact']", "#contact")
 });
