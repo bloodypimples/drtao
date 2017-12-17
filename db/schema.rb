@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213165739) do
+ActiveRecord::Schema.define(version: 20171216092210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20171213165739) do
     t.datetime "image_updated_at"
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -59,6 +64,19 @@ ActiveRecord::Schema.define(version: 20171213165739) do
     t.integer "service_id"
     t.integer "part_id"
     t.integer "article_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "part_id"
+    t.bigint "service_id"
+    t.bigint "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["part_id"], name: "index_line_items_on_part_id"
+    t.index ["product_id"], name: "index_line_items_on_product_id"
+    t.index ["service_id"], name: "index_line_items_on_service_id"
   end
 
   create_table "parts", force: :cascade do |t|
@@ -111,4 +129,8 @@ ActiveRecord::Schema.define(version: 20171213165739) do
     t.string "name"
   end
 
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "parts"
+  add_foreign_key "line_items", "products"
+  add_foreign_key "line_items", "services"
 end

@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   get 'tin-tức', to: "news#index", as: "tin-tuc"
   get 'tin-tức/:id', to: "news#show", as: "tin-tuc-show"
   post ':thing_type/:thing_id/comments', to: "comments#create", as: "comments"
+
+  # cart routes
+  get 'giỏ-hàng', to: "carts#show", as: "gio-hang"
+  post ':thing_type/:thing_id/line_items', to: "line_items#create", as: "line_items"
+  delete ':thing_type/:thing_id/line_items', to: "line_items#destroy"
 end

@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "carts";
 
 $lime: #95d600;
 $hover-bg: #449d44;
@@ -22,6 +23,9 @@ h1, h2{
 }
 .btn-success{
   background-color: $lime;
+  border: 0px;
+}
+.btn-danger{
   border: 0px;
 }
 .navbar{
@@ -269,6 +273,12 @@ p{
       transform: scale(1.4);
       margin: 100px 0px;
     }
+  }
+}
+
+.btn{
+  a{
+    color: white;
   }
 }
 

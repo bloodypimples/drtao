@@ -1,4 +1,6 @@
 class ServicesController < ApplicationController
+  include CurrentCart
+  before_action :set_cart, only: [:show]
   before_action :set_service, only: [:show]
 
   def index

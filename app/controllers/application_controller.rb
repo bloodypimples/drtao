@@ -52,5 +52,15 @@ class ApplicationController < ActionController::Base
     number_with_precision(price_int, :precision => 0, :delimiter => ',').to_s + "₫"
   end
 
-  helper_method :cp, :en_url, :de_url, :title, :get_price
+  def is_added_to_cart?(thing_type, thing_id, cart)
+    if thing_type == 'product'
+      @item = cart.line_items.find_by(product_id: thing_id)
+    elsif thing_type == 'service'
+      @item = cart.line_items.find_by(service_id: thing_id)
+    elsif thing_type == 'part'
+      @item = cart.line_items.find_by(part_id: thing_id)
+    end
+  end
+
+  helper_method :cp, :en_url, :de_url, :title, :get_price, :is_added_to_cart?
 end

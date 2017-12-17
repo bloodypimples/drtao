@@ -1,0 +1,44 @@
+<% content_for :title, title('GIỎ HÀNG') %>
+
+<div class="news show page">
+
+  <div class="homepage jumbotron">
+
+    <div class="container">
+      <h1>GIỎ HÀNG</h1>
+    </div>
+
+  </div>
+
+  <div class="container-fluid">
+    <div class="container">
+
+      <% if @count > 0 %>
+        Hiện có <%= @count %> sản phẩm trong giỏ hàng của bạn.
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Tên</th>
+              <th>Giá</th>
+              <th>Số lượng</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cart.line_items.each do |item| %>
+              <%= render 'line_items/line_item', item: item %>
+            <% end %>
+          </tbody>
+        </table>
+
+        <p><b>Tổng cộng:</b> 50.000 VND</p>
+
+        <div class="btn btn-success">Thanh toán</div>
+      <% else %>
+        Giỏ hàng trống.
+      <% end %>
+    </div>
+  </div>
+
+</div>
