@@ -1,6 +1,5 @@
 <tr>
-  <td>Rustic Linen Coat</td>
-  <td>38₫</td>
-  <td>x <input type="number" value="1"></td>
-  <td class="remove"><a href="#">Xóa</a></td>
+  <td><%= item.name %></td>
+  <td><%= get_price(item.price) %></td>
+  <td class="remove"><%= link_to "Xóa", line_items_path(thing_type: 'line_item', thing_id: item.id), method: :delete %></td>
 </tr>

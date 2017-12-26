@@ -21,6 +21,9 @@ h1{
 h1, h2{
   font-weight: 300;
 }
+.container-fluid{
+  padding: 0px;
+}
 .btn-success{
   background-color: $lime;
   border: 0px;
@@ -282,6 +285,21 @@ p{
   }
 }
 
+input{
+  &[type=number]{
+    width: 40px;
+  }
+}
+
+.input{
+  label{
+    display: none;
+  }
+}
+
+.form-control{
+  margin-bottom: 20px;
+}
 @media (max-width: 768px) {
   .news{
     .row{

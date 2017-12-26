@@ -13,6 +13,10 @@
   <div class="container-fluid">
     <div class="container">
 
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "alert alert-#{key}" %>
+      <% end %>
+
       <% if @count > 0 %>
         Hiện có <%= @count %> sản phẩm trong giỏ hàng của bạn.
 
@@ -21,7 +25,6 @@
             <tr>
               <th>Tên</th>
               <th>Giá</th>
-              <th>Số lượng</th>
               <th></th>
             </tr>
           </thead>
@@ -32,9 +35,16 @@
           </tbody>
         </table>
 
-        <p><b>Tổng cộng:</b> 50.000 VND</p>
+        <p><b>Tổng cộng:</b> <%= get_price(@cart.total_price) %></p>
 
-        <div class="btn btn-success">Thanh toán</div>
+        <%= simple_form_for :order, url: orders_path do |f| %>
+          <div class="field">
+            <%= f.input :name, placeholder: "Tên", input_html: { class: "form-control" } %>
+            <%= f.input :email, placeholder: "Email", input_html: { class: "form-control" } %>
+            <%= f.input :address, placeholder: "Địa Chỉ", input_html: { class: "form-control" } %>
+          </div>
+          <%= f.submit "Đặt hàng", class: "btn btn-success" %>
+        <% end %>
       <% else %>
         Giỏ hàng trống.
       <% end %>

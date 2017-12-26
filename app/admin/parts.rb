@@ -1,4 +1,4 @@
-ActiveAdmin.register Service do
+ActiveAdmin.register Part do
   permit_params :name, :price, :description, :category_id, :image, :body
 
   index do

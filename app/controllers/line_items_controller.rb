@@ -27,6 +27,8 @@ class LineItemsController < ApplicationController
       @line_item = @cart.line_items.find_by(service_id: params[:thing_id])
     elsif params[:thing_type] == 'part'
       @line_item = @cart.line_items.find_by(part_id: params[:thing_id])
+    elsif params[:thing_type] == 'line_item'
+      @line_item = LineItem.find(params[:thing_id])
     end
 
     @line_item.destroy

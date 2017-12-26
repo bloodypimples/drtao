@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get 'giỏ-hàng', to: "carts#show", as: "gio-hang"
   post ':thing_type/:thing_id/line_items', to: "line_items#create", as: "line_items"
   delete ':thing_type/:thing_id/line_items', to: "line_items#destroy"
+  post 'orders', to: "orders#create"
+  get 'orders/:id', to: "orders#show", as: "order"
 end
