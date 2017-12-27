@@ -40,6 +40,7 @@
         <%= simple_form_for :order, url: orders_path do |f| %>
           <div class="field">
             <%= f.input :name, placeholder: "Tên", input_html: { class: "form-control" } %>
+            <%= f.input :phone_number, placeholder: "Số điện thoại", input_html: { class: "form-control" } %>
             <%= f.input :email, placeholder: "Email", input_html: { class: "form-control" } %>
             <%= f.input :address, placeholder: "Địa Chỉ", input_html: { class: "form-control" } %>
           </div>

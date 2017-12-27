@@ -1,0 +1,24 @@
+<h1>Hóa đơn đặt hàng của bạn tại Dr.Táo</h1>
+
+<p>Xin chào <%= @order.name %>, đây là nội dung hóa đơn gần đây nhất của bạn.</p>
+
+<div class="panel-heading">Mã đơn hàng: <%= @order.id %></div>
+
+<!-- Table -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <th>Giá</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.line_items.each do |item| %>
+      <%= render 'line_items/line_item', item: item %>
+    <% end %>
+    <tr>
+      <td><b>Tổng cộng</b></td>
+      <td><b><%= get_price(@order.total_price) %></b></td>
+    </tr>
+  </tbody>
+</table>

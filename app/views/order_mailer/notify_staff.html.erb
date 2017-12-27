@@ -1,0 +1,27 @@
+<h1>Hóa đơn đặt hàng mới của <%= @order.name %> tại Dr.Táo</h1>
+
+<div class="panel-heading">Mã đơn hàng: <%= @order.id %></div>
+
+<!-- Table -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <th>Giá</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.line_items.each do |item| %>
+      <%= render 'line_items/line_item', item: item %>
+    <% end %>
+    <tr>
+      <td><b>Tổng cộng</b></td>
+      <td><b><%= get_price(@order.total_price) %></b></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Tên khách hàng: </b><%= @order.name %></p>
+<p><b>Email: </b><%= @order.email %></p>
+<p><b>Số điện thoại: </b><%= @order.phone_number %></p>
+<p><b>Địa chỉ: </b><%= @order.address %></p>

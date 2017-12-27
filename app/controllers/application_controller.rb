@@ -48,10 +48,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def get_price(price_int)
-    number_with_precision(price_int, :precision => 0, :delimiter => ',').to_s + "₫"
-  end
-
   def is_added_to_cart?(thing_type, thing_id, cart)
     if thing_type == 'product'
       @item = cart.line_items.find_by(product_id: thing_id)
@@ -62,5 +58,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :cp, :en_url, :de_url, :title, :get_price, :is_added_to_cart?
+  helper_method :cp, :en_url, :de_url, :title, :is_added_to_cart?
 end

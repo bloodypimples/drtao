@@ -9,4 +9,8 @@ module ApplicationHelper
   def get_comment_time(comment)
     comment.created_at.strftime("%b %e'%Y")
   end
+
+  def get_price(price_int)
+    number_with_precision(price_int, :precision => 0, :delimiter => ',').to_s + "₫"
+  end
 end

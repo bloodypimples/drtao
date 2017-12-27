@@ -6,9 +6,11 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.id = SecureRandom.uuid
     @order.line_items = @cart.line_items
-    @cart.destroy
 
     if @order.save
+      @cart.destroy
+      OrderMailer.send_receipt(@order).deliver
+      OrderMailer.notify_staff(@order).deliver
       flash[:success] = "Đặt hàng thành công, Dr.Táo sẽ liên lạc lại sớm nhất có thể."
       redirect_to order_path(@order)
     else
@@ -25,6 +27,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params[:order].permit(:name, :email, :address)
+    params[:order].permit(:name, :email, :address, :phone_number)
   end
 end
