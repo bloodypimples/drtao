@@ -20,6 +20,6 @@ class OrderMailer < ApplicationMailer
   def notify_staff(order)
     @order = order
 
-    mail to: STAFF_EMAIL, subject: "Hóa đơn đặt hàng mới từ #{@customer_name}."
+    mail to: STAFF_EMAIL, subject: "Hóa đơn đặt hàng mới từ #{@order.name}."
   end
 end
