@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     @cart.destroy
 
     if @order.save
+      flash[:success] = "Đặt hàng thành công, Dr.Táo sẽ liên lạc lại sớm nhất có thể."
       redirect_to order_path(@order)
     else
       flash[:danger] = "Vui lòng điền đầy đủ thông tin."
@@ -17,6 +18,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @count = @order.line_items.count
   end
 
   private

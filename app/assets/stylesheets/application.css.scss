@@ -300,6 +300,12 @@ input{
 .form-control{
   margin-bottom: 20px;
 }
+
+.news-section{
+  .row{
+    margin: 0px;
+  }
+}
 @media (max-width: 768px) {
   .news{
     .row{

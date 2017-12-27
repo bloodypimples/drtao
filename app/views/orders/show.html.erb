@@ -1,2 +1,51 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<% content_for :title, title("ĐƠN HÀNG") %>
+
+<div class="news show page">
+
+  <div class="homepage jumbotron">
+
+    <div class="container">
+      <h1>ĐƠN HÀNG</h1>
+    </div>
+
+  </div>
+
+  <div class="container-fluid">
+    <div class="container">
+
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "alert alert-#{key}" %>
+      <% end %>
+
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Đơn hàng có <%= @count %> sản phẩm. (Mã đơn hàng: <%= @order.id %>)</div>
+
+        <!-- Table -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Tên</th>
+              <th>Giá</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order.line_items.each do |item| %>
+              <%= render 'line_items/line_item', item: item %>
+            <% end %>
+            <tr>
+              <td><b>Tổng cộng</b></td>
+              <td><b><%= get_price(@order.total_price) %></b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><b>Tên khách hàng:</b> <%= @order.name %></p>
+      <p><b>Email:</b> <%= @order.email %></p>
+      <p><b>Địa chỉ:</b> <%= @order.address %></p>
+
+    </div>
+  </div>
+
+</div>
