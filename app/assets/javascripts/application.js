@@ -31,5 +31,16 @@ $(document).ready(function () {
     $('.categories .items').toggleClass("visible");
   })
 
+  // nav bar reveals dropdown menu upon mouseenter
+  $(document).on('mouseenter', '.navbar li' , function(){
+    var dropdown = $(this).find('.dropdown-menu')
+    dropdown.addClass('show')
+  })
+  // nav bar hides dropdown menu on mouseleave
+  $(document).on('mouseleave', '.navbar li' , function(){
+    var dropdown = $(this).find('.dropdown-menu')
+    dropdown.removeClass('show')
+  })
+
   smooth_scroll("a[href='#contact']", "#contact")
 });

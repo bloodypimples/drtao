@@ -32,6 +32,18 @@ h1, h2{
   border: 0px;
 }
 .navbar{
+  li{
+    // &:hover{
+    //   .dropdown-menu{
+    //     display: block;
+    //   }
+    // }
+    .dropdown-menu{
+      &:show{
+        display: block;
+      }
+    }
+  }
   margin-bottom: 0px;
   a{
     text-decoration: none;

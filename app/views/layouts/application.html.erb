@@ -193,9 +193,31 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="<%= cp(san_pham_path) %>"><a href="<%= san_pham_path %>">Sản phẩm</a></li>
-            <li class="<%= cp(dich_vu_path) %>"><a href="<%= dich_vu_path %>">Dịch vụ</a></li>
-            <li class="<%= cp(linh_kien_path) %>"><a href="<%= linh_kien_path %>">Linh kiện</a></li>
+            <li class="<%= cp(san_pham_path) %>">
+              <a href="<%= san_pham_path %>">Sản phẩm</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <% @sanpham_sub_categories.each do |c| %>
+                  <li><%= link_to c.name, san_pham_path(:'danh-mục' => en_url(c.name)) %></li>
+                <% end %>
+              </ul>
+            </li>
+          </li>
+            <li class="<%= cp(dich_vu_path) %>">
+              <a href="<%= dich_vu_path %>">Dịch vụ</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <% @dichvu_sub_categories.each do |c| %>
+                  <li><%= link_to c.name, dich_vu_path(:'danh-mục' => en_url(c.name)) %></li>
+                <% end %>
+              </ul>
+            </li>
+            <li class="<%= cp(linh_kien_path) %>">
+              <a href="<%= linh_kien_path %>">Linh kiện</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <% @linhkien_sub_categories.each do |c| %>
+                  <li><%= link_to c.name, linh_kien_path(:'danh-mục' => en_url(c.name)) %></li>
+                <% end %>
+              </ul>
+            </li>
             <li class="<%= cp(tin_tuc_path) %>"><a href="<%= tin_tuc_path %>">Tin tức</a></li>
             <li><a href="#contact">Liên hệ</a></li>
           </ul>

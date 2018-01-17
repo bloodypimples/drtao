@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_layout_vars
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::NumberHelper
 
@@ -59,4 +60,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :cp, :en_url, :de_url, :title, :is_added_to_cart?
+
+  def set_layout_vars
+    @sanpham_sub_categories = Category.where(for: "Products")
+    @dichvu_sub_categories = Category.where(for: "Services")
+    @linhkien_sub_categories = Category.where(for: "Parts")
+  end
 end
