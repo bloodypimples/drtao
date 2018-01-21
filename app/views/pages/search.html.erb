@@ -6,33 +6,65 @@
 
     <div class="container">
       <h1>TÌM KIẾM</h1>
-      <p>Các sản phẩm với từ khóa "ABC"</p>
+      <p>Các sản phẩm với từ khóa "<%= @term %>"</p>
     </div>
 
   </div>
 
-  <div class="container">
-    <p class="count">
-      10 kết quả với từ khóa "ABC"
-    </p>
-    <div class="row">
-      <% 10.times do %>
-        <!-- <div class="col-md-4">
-          <%= render 'partials/product', product: Product.last %>
-        </div> -->
-        <div class="col-md-3">
-          <div class="thumbnail">
-            <img src="/assets/default.png" alt="Default">
-            <div class="caption">
-              <h3>Practical Wool Bench</h3>
-              <p class="price">71₫</p>
-              <p>Mười đang ruộng ba đã một đá chín. Bơi ba lỗi thuyền năm mây. Không một chỉ. Vá thì nón bốn. Biển thế được hết quê. Thế bơi nghỉ hết nước ác.</p>
-              <p><a href="/s%E1%BA%A3n-ph%E1%BA%A9m/practical-wool-bench" class="btn btn-success" role="button">Xem</a></p>
-            </div>
+  <% if @total.count > 0 %>
+    <div class="container">
+      <p class="count">
+        <%= @total.count %> kết quả với từ khóa "<%= @term %>"
+      </p>
+      <% if @products.count > 0 %>
+        <h2>Sản phẩm</h2>
+        <% @products_array.each do |group| %>
+          <div class="row">
+            <% group.each do |product| %>
+              <% if product %>
+                <div class="col-md-3">
+                  <%= render 'partials/product', product: product %>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-        </div>
+        <% end %>
+      <% end %>
+      <% if @services.count > 0 %>
+        <h2>Dịch vụ</h2>
+        <% @services_array.each do |group| %>
+          <div class="row">
+            <% group.each do |service| %>
+              <% if service %>
+                <div class="col-md-3">
+                  <%= render 'partials/service', service: service %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <% if @parts.count > 0 %>
+        <h2>Linh kiện</h2>
+        <% @parts_array.each do |group| %>
+          <div class="row">
+            <% group.each do |part| %>
+              <% if part %>
+                <div class="col-md-3">
+                  <%= render 'partials/part', part: part %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-  </div>
+  <% else %>
+    <div class="container">
+      <p class="count">
+        Không tìm được kết quả nào với từ khóa "<%= @term %>"
+      </p>
+    </div>
+  <% end %>
 
 </div>
