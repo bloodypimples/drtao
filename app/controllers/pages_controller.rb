@@ -6,4 +6,7 @@ class PagesController < ApplicationController
     @iphone_cu_products = get_from_category("iPhone cũ", 4, "products")
     @articles = Article.all.order("created_at desc").limit(4)
   end
+
+  def search
+  end
 end

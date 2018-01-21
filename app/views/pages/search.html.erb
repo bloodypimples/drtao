@@ -1,0 +1,38 @@
+<div class="search page">
+
+  <% content_for :title, title('TÌM KIẾM') %>
+
+  <div class="homepage jumbotron">
+
+    <div class="container">
+      <h1>TÌM KIẾM</h1>
+      <p>Các sản phẩm với từ khóa "ABC"</p>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <p class="count">
+      10 kết quả với từ khóa "ABC"
+    </p>
+    <div class="row">
+      <% 10.times do %>
+        <!-- <div class="col-md-4">
+          <%= render 'partials/product', product: Product.last %>
+        </div> -->
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <img src="/assets/default.png" alt="Default">
+            <div class="caption">
+              <h3>Practical Wool Bench</h3>
+              <p class="price">71₫</p>
+              <p>Mười đang ruộng ba đã một đá chín. Bơi ba lỗi thuyền năm mây. Không một chỉ. Vá thì nón bốn. Biển thế được hết quê. Thế bơi nghỉ hết nước ác.</p>
+              <p><a href="/s%E1%BA%A3n-ph%E1%BA%A9m/practical-wool-bench" class="btn btn-success" role="button">Xem</a></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

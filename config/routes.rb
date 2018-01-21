@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   delete ':thing_type/:thing_id/line_items', to: "line_items#destroy"
   post 'orders', to: "orders#create"
   get 'orders/:id', to: "orders#show", as: "order"
+
+  get 'search', to: "pages#search"
 end

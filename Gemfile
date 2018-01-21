@@ -68,3 +68,5 @@ gem 'jquery-rails'
 gem 'ckeditor'
 
 gem 'will_paginate'
+
+gem 'searchkick', '~> 2.4'
