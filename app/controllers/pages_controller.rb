@@ -8,13 +8,18 @@ class PagesController < ApplicationController
   end
 
   def search
-    @term = params[:search]
-    @products = Product.search(@term)
-    @services = Service.search(@term)
-    @parts = Part.search(@term)
-    @products_array = Product.search(@term).in_groups_of(4)
-    @services_array = Service.search(@term).in_groups_of(4)
-    @parts_array = Part.search(@term).in_groups_of(4)
-    @total = @products + @services + @parts
+    @term = params[:search].strip if params[:search]
+    if @term.present? && !@term.empty?
+      @products = Product.search(@term)
+      @services = Service.search(@term)
+      @parts = Part.search(@term)
+      @products_array = Product.search(@term).in_groups_of(4)
+      @services_array = Service.search(@term).in_groups_of(4)
+      @parts_array = Part.search(@term).in_groups_of(4)
+      @total = @products + @services + @parts
+    else
+      # initialize total to a empty hash if query is empty
+      @total = {}
+    end
   end
 end
