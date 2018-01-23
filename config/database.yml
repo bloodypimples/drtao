@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: drtaorb_production
-  username: drtaorb
+  username: drtao
   password: <%= ENV['DRTAORB_DATABASE_PASSWORD'] %>
