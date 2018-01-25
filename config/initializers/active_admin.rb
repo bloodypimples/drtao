@@ -275,4 +275,13 @@ ActiveAdmin.setup do |config|
   # You can inherit it with own class and inject it for all resources
   #
   # config.order_clause = MyOrderClause
+
+  # SET DEFAULT LOCALE
+  config.before_action :set_admin_locale
+
+  # DISABLE FILTERS
+  config.filters = false
+
+  # DISABLING THE DASHBOARD BY CHANGEING ROOT & COMMENTING OUT DASHBOARD.RB
+  config.root_to = 'products#index'
 end

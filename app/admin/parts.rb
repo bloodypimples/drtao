@@ -14,7 +14,7 @@ ActiveAdmin.register Part do
     inputs 'Details' do
       input :name
       input :price, label: "price (₫)"
-      input :category
+      input :category, collection: Category.where(for: "Parts")
       input :description, :as => :ckeditor
       input :body, :as => :ckeditor
       input :image

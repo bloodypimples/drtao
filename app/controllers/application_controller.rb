@@ -66,4 +66,9 @@ class ApplicationController < ActionController::Base
     @dichvu_sub_categories = Category.where(for: "Services")
     @linhkien_sub_categories = Category.where(for: "Parts")
   end
+
+  # FOR SETTING ACTIVE ADMINS' DEFAULT LOCALE
+  def set_admin_locale
+    I18n.locale = :en
+  end
 end
