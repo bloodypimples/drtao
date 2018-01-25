@@ -113,5 +113,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # FOR UPLOAD CONTENT VALIDATION TO WORK
-  # Paperclip.options[:command_path] = '/usr/bin'
+  Paperclip.options[:command_path] = '/usr/bin'
 end
