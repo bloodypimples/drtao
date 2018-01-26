@@ -276,9 +276,6 @@ ActiveAdmin.setup do |config|
   #
   # config.order_clause = MyOrderClause
 
-  # SET DEFAULT LOCALE
-  config.before_action :set_admin_locale
-
   # DISABLE FILTERS
   config.filters = false
 
