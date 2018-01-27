@@ -3,8 +3,8 @@
   <head>
     <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
-    <!-- stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' -->
-    <%= render 'partials/css' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- render 'partials/css' -->
     <%= javascript_include_tag 'application', async: Rails.env.production?, 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/favicon.png" sizes="32x32" />

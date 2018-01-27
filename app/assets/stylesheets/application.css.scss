@@ -336,8 +336,20 @@ input{
       }
     }
   }
+  .navbar-form{
+    margin: 0px !important;
+  }
 }
 @media (max-width: 992px){
+  .news-section{
+    .row{
+      display: block;
+      .sidebar{
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+    }
+  }
   // custom nav breakpoint
   .navbar-header {
       float: none;
