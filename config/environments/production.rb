@@ -118,4 +118,10 @@ Rails.application.configure do
   # JAVASCRIPT COMPRESSION
   config.assets.compress = true
   config.assets.js_compressor = Uglifier.new(output: { comments: :none })
+
+  # LEVERAGE BROWSER CACHING
+  config.public_file_server.headers = {
+    'Cache-Control' => 'public, s-maxage=31536000, maxage=15552000',
+    'Expires' => "#{1.year.from_now.to_formatted_s(:rfc822)}"
+  }
 end
