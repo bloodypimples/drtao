@@ -117,5 +117,5 @@ Rails.application.configure do
 
   # JAVASCRIPT COMPRESSION
   config.assets.compress = true
-  config.assets.js_compressor = Uglifier.new(copyright: false)
+  config.assets.js_compressor = Uglifier.new(output: { comments: :none })
 end
