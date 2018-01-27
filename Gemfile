@@ -62,7 +62,7 @@ gem 'simple_form', '~> 3.5'
 
 gem 'faker', '~> 1.8', '>= 1.8.4'
 
-gem 'paperclip', '~> 5.1'
+gem 'paperclip'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
@@ -71,3 +71,5 @@ gem 'jquery-rails'
 gem 'ckeditor'
 
 gem 'will_paginate'
+
+gem 'easy_optimise'
