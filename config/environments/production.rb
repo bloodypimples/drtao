@@ -114,4 +114,8 @@ Rails.application.configure do
 
   # FOR UPLOAD CONTENT VALIDATION TO WORK
   Paperclip.options[:command_path] = '/usr/bin'
+
+  # JAVASCRIPT COMPRESSION
+  config.assets.compress = true
+  config.assets.js_compressor = Uglifier.new(copyright: false)
 end
