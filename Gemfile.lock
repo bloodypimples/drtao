@@ -97,8 +97,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
-    easy_optimise (0.1.0)
-      paperclip (~> 4.2)
     erubi (1.7.0)
     execjs (2.7.0)
     faker (1.8.7)
@@ -283,7 +281,6 @@ DEPENDENCIES
   capybara (~> 2.13)
   ckeditor
   coffee-rails (~> 4.2)
-  easy_optimise
   faker (~> 1.8, >= 1.8.4)
   jbuilder (~> 2.5)
   jquery-rails
