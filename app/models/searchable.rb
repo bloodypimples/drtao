@@ -1,5 +1,5 @@
 class Searchable < ApplicationRecord
-  after_commit :compress_image
+  after_commit :compress_image, on: [:create, :update]
 
   has_attached_file :image, styles: { large: ["1300x1300>", :png], medium: ["600x600>", :png], thumb: ["100x100", :png] }, default_url: "/assets/default.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
