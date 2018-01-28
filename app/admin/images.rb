@@ -11,10 +11,10 @@ ActiveAdmin.register Image do
      row 'Original size' do |image|
        link_to image.image.url, image.image.url
      end
-     row '< 1300px' do |image|
+     row '500x500px' do |image|
        link_to image.image.url(:large), image.image.url(:large)
      end
-     row '< 600px' do |image|
+     row '250x250px' do |image|
        link_to image.image.url(:medium), image.image.url(:medium)
      end
      row '100x100px' do |image|
