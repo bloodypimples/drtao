@@ -71,3 +71,5 @@ gem 'jquery-rails'
 gem 'ckeditor'
 
 gem 'will_paginate'
+
+gem "mini_magick"
