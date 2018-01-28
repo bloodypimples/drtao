@@ -11,9 +11,8 @@ class Searchable < ApplicationRecord
   end
 
   def compress
-    system "convert #{self.image.path(:large)} -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace sRGB #{self.image.path(:large)}"
-    system "convert #{self.image.path(:medium)} -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace sRGB #{self.image.path(:medium)}"
-    system "convert #{self.image.path(:thumb)} -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace sRGB #{self.image.path(:thumb)}"
-    system "echo 'executed'"
+    exec "convert #{self.image.path(:large)} -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace sRGB #{self.image.path(:large)}"
+    exec "convert #{self.image.path(:medium)} -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace sRGB #{self.image.path(:medium)}"
+    exec "convert #{self.image.path(:thumb)} -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace sRGB #{self.image.path(:thumb)}"
   end
 end
