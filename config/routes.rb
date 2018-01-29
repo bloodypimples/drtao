@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   get '/:id', to: "products#show", as: 'san-pham-short', constraints: ProductConstraint.new
   get '/:id', to: "services#show", as: 'dich-vu-short', constraints: ServiceConstraint.new
   get '/:id', to: "parts#show", as: 'linh-kien-short', constraints: PartConstraint.new
+  get '/:id', to: "news#show", as: 'tin-tuc-short', constraints: NewsConstraint.new
 end
