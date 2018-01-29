@@ -4,6 +4,6 @@
     <h3><%= service.name %></h3>
     <p class="price"><%= get_price(service.price) %></p>
     <p><%= service.description.html_safe %></p>
-    <p><a href="<%= dich_vu_show_path(en_url(service.name)) %>" class="btn btn-success" role="button">Xem</a></p>
+    <p><a href="<%= dich_vu_short_path(en_url(service.name)) %>" class="btn btn-success" role="button">Xem</a></p>
   </div>
 </div>

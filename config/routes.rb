@@ -22,4 +22,9 @@ Rails.application.routes.draw do
   get 'orders/:id', to: "orders#show", as: "order"
 
   get 'search', to: "pages#search"
+
+  # top level route constraints
+  get '/:id', to: "products#show", as: 'san-pham-short', constraints: ProductConstraint.new
+  get '/:id', to: "services#show", as: 'dich-vu-short', constraints: ServiceConstraint.new
+  get '/:id', to: "parts#show", as: 'linh-kien-short', constraints: PartConstraint.new
 end
