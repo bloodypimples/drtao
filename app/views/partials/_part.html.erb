@@ -1,5 +1,7 @@
 <div class="thumbnail">
-  <%= image_tag part.image.url(:medium) %>
+  <a href="<%= linh_kien_short_path(en_url(part.name)) %>">
+    <%= image_tag part.image.url(:medium) %>
+  </a>
   <div class="caption">
     <h3><%= part.name %></h3>
     <p class="price"><%= get_price(part.price) %></p>

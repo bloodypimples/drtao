@@ -1,5 +1,7 @@
 <div class="thumbnail">
-  <%= image_tag service.image.url(:medium) %>
+  <a href="<%= dich_vu_short_path(en_url(service.name)) %>">
+    <%= image_tag service.image.url(:medium) %>
+  </a>
   <div class="caption">
     <h3><%= service.name %></h3>
     <p class="price"><%= get_price(service.price) %></p>
