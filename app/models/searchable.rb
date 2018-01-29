@@ -1,4 +1,6 @@
 class Searchable < ApplicationRecord
+  has_many :line_items, dependent: :destroy
+
   after_commit :compress_image, on: [:create, :update]
 
   has_attached_file :image, styles: { large: ["500x500>", :jpg], medium: ["250x250>", :jpg], thumb: ["100x100", :jpg] }, default_url: "/assets/default.png"
