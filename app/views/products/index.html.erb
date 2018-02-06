@@ -27,16 +27,20 @@
         </div>
 
         <div class="col-xs-12 col-md-10">
-          <% @products_array.size.times do |i| %>
-            <div class="row">
-              <% @products_array[i].each do |product| %>
-                <% if product %>
-                  <div class="col-md-4">
-                    <%= render 'partials/product', product: product %>
-                  </div>
+          <% if @products_array.size < 1 %>
+            Hiện tại danh mục này chưa có sản phẩm nào.
+          <% else %>
+            <% @products_array.size.times do |i| %>
+              <div class="row">
+                <% @products_array[i].each do |product| %>
+                  <% if product %>
+                    <div class="col-md-4">
+                      <%= render 'partials/product', product: product %>
+                    </div>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
           <% end %>
 
           <% if @count > @per_page %>

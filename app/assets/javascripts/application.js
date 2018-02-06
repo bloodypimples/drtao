@@ -12,10 +12,10 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require ckeditor/init
 //= require jquery3
 //= require bootstrap-sprockets
+//= require_tree .
 function smooth_scroll(trigger_element, target_element){
   $(document).on('click', trigger_element, function(e){
     e.preventDefault();
@@ -31,16 +31,32 @@ $(document).ready(function () {
     $('.categories .items').toggleClass("visible");
   })
 
-  // nav bar reveals dropdown menu upon mouseenter
-  $(document).on('mouseenter', '.navbar li' , function(){
-    var dropdown = $(this).find('.dropdown-menu')
-    dropdown.addClass('show')
-  })
-  // nav bar hides dropdown menu on mouseleave
-  $(document).on('mouseleave', '.navbar li' , function(){
-    var dropdown = $(this).find('.dropdown-menu')
-    dropdown.removeClass('show')
-  })
+  // only reveals sub-menus on hover on desktop
+  if(window.matchMedia("(min-width: 993px)").matches){
+    // nav bar reveals dropdown menu upon mouseenter
+    $(document).on('mouseenter', '.navbar li' , function(){
+      var dropdown = $(this).find('.dropdown-menu')
+      dropdown.addClass('show')
+    })
+    // nav bar hides dropdown menu on mouseleave
+    $(document).on('mouseleave', '.navbar li' , function(){
+      var dropdown = $(this).find('.dropdown-menu')
+      dropdown.removeClass('show')
+    })
+  //on mobile, sub-menus are revealed by click
+  }else{
+    $(document).on('click', '.navbar li .category-toggle.caret', function(e){
+      e.preventDefault();
+      var dropdown = $(this).parents('.navbar li').find('.dropdown-menu')
+      dropdown.toggleClass('show')
+    })
+    // sub-categories toggle
+    $(document).on('click', '.navbar li .subcategory-toggle.caret', function(e){
+      e.preventDefault();
+      var subcategory = $(this).parents('.col-sm-4').find('.level2')
+      subcategory.toggleClass('show')
+    })
+  }
 
   smooth_scroll("a[href='#contact']", "#contact")
 });
