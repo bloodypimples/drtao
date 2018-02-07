@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
 
   def title(string = '')
     if string.length > 0
-      string + " - HỆ THỐNG SỬA IPHONE DR.TÁO"
+      string.mb_chars.upcase + " - HỆ THỐNG SỬA IPHONE DR.TÁO"
     else
       "HỆ THỐNG SỬA IPHONE DR.TÁO"
     end

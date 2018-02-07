@@ -1,24 +1,3 @@
-# create product cateories
-@product_categories = ["iPhone mới", "iPhone cũ", "Macbook", "iPad", "iMac", "Loa", "Samsung"]
-
-@product_categories.each do |category|
-  Category.create(name: category, for: "Products")
-end
-
-# create service categories
-@service_categories = ["Sửa iPhone", "Sửa iPad", "Sửa MacBook", "Ép Kính iPhone", "Sửa Blackberry", "Sửa Phillips", "Sửa Samsung"]
-
-@service_categories.each do |category|
-  Category.create(name: category, for: "Services")
-end
-
-# create part categories
-@part_categories = ["Linh Kiện iPhone", "Linh Kiện iPad", "Linh Kiện MacBook", "Linh Kiện Blackberry", "Linh Kiện Phillips", "Linh Kiện Samsung", "Linh Kiện iMac"]
-
-@part_categories.each do |category|
-  Category.create(name: category, for: "Parts")
-end
-
 # create admins
 User.create(
   email: "hieudoan2609@gmail.com",
@@ -27,35 +6,65 @@ User.create(
   password_confirmation: "secret"
 )
 
+# create super categories & categories
+types = ['Products', 'Services', 'Parts']
 50.times do
-  # create products
-  Product.create(
+
+  sup = SuperCategory.create(
+    name: Faker::Lorem.sentence(3),
+    for: types[rand(0..2)]
+  )
+
+  rand(1..5).times do
+    sup.categories.create(
+      name: Faker::Lorem.sentence(3)
+    )
+  end
+end
+
+#create products
+100.times do
+  product = Product.new(
     name: Faker::Commerce.product_name,
     price: Faker::Commerce.price,
     description: Faker::Lorem.paragraph(5),
-    category_id: rand(1..7),
+    category_id: rand(1..Category.count),
     body: Faker::Lorem.paragraphs(rand(5..10), true).join('<br><br>')
   )
+  while product.category.for != "Products" do
+    product.category_id = rand(1..Category.count)
+  end
+  product.save
 
   # create services
-  Service.create(
+  service = Service.new(
     name: Faker::Commerce.product_name,
     price: Faker::Commerce.price,
     description: Faker::Lorem.paragraph(5),
-    category_id: rand(8..14),
+    category_id: rand(1..Category.count),
     body: Faker::Lorem.paragraphs(rand(5..10), true).join('<br><br>')
   )
+  while service.category.for != "Services" do
+    service.category_id = rand(1..Category.count)
+  end
+  service.save
 
   # create parts
-  Part.create(
+  part = Part.new(
     name: Faker::Commerce.product_name,
     price: Faker::Commerce.price,
     description: Faker::Lorem.paragraph(5),
-    category_id: rand(15..21),
+    category_id: rand(1..Category.count),
     body: Faker::Lorem.paragraphs(rand(5..10), true).join('<br><br>')
   )
+  while part.category.for != "Parts" do
+    part.category_id = rand(1..Category.count)
+  end
+  part.save
+end
 
-  # create articles
+# create articles
+10.times do
   Article.create(
     title: Faker::Lorem.sentence.tr('.', ''),
     description: Faker::Lorem.paragraph(5),

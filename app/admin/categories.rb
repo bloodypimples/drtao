@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-  permit_params :name, :for
+  permit_params :name, :for, :super_category_id
 
   index do
     selectable_column
@@ -12,7 +12,7 @@ ActiveAdmin.register Category do
   form do |f|
     inputs 'Details' do
       input :name
-      input :for
+      input :super_category
     end
     actions
   end

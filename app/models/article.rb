@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  before_save :remove_dot_from_title, only: [:create, :update]
+
   has_many :comments, dependent: :destroy
   belongs_to :user
   validates :title, :description, :user_id, :body, presence: true
@@ -10,14 +12,13 @@ class Article < ApplicationRecord
 
   def compress(image_path)
     system "convert #{image_path} -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace sRGB #{image_path}"
-    # image = MiniMagick::Image.open(image_path)
-    # image.strip()
-    # image.write image_path
   end
 
   def compress_image
-    compress(self.image.path(:large))
-    compress(self.image.path(:medium))
-    compress(self.image.path(:thumb))
+    if self.image?
+      compress(self.image.path(:large))
+      compress(self.image.path(:medium))
+      compress(self.image.path(:thumb))
+    end
   end
 end

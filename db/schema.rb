@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180126174846) do
+ActiveRecord::Schema.define(version: 20180207143634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180126174846) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "for"
+    t.integer "super_category_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -101,7 +102,6 @@ ActiveRecord::Schema.define(version: 20180126174846) do
   create_table "parts", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "category_id"
     t.text "body"
     t.integer "price"
     t.datetime "created_at", null: false
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20180126174846) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.integer "category_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -117,19 +118,18 @@ ActiveRecord::Schema.define(version: 20180126174846) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.text "body"
     t.integer "price"
+    t.integer "category_id"
   end
 
   create_table "services", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "category_id"
     t.text "body"
     t.integer "price"
     t.datetime "created_at", null: false
@@ -138,6 +138,14 @@ ActiveRecord::Schema.define(version: 20180126174846) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.integer "category_id"
+  end
+
+  create_table "super_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "for"
   end
 
   create_table "users", force: :cascade do |t|
