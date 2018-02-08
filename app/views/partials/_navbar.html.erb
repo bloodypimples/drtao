@@ -186,10 +186,10 @@
             <span class="caret category-toggle"></span>
           </a>
           <ul class="dropdown-menu level1" aria-labelledby="dropdownMenu1">
-            <% 5.times do %>
+            <% @sanpham_super_categories_array.size.times do |i| %>
               <div class="row">
-                <% 3.times do %>
-                  <%= render 'partials/category' %>
+                <% @sanpham_super_categories_array[i].each do |sup| %>
+                  <%= render 'partials/category', sup: sup if sup %>
                 <% end %>
               </div>
             <% end %>
@@ -202,10 +202,10 @@
             <span class="caret category-toggle"></span>
           </a>
           <ul class="dropdown-menu level1" aria-labelledby="dropdownMenu1">
-            <% 5.times do %>
+            <% @dichvu_super_categories_array.size.times do |i| %>
               <div class="row">
-                <% 3.times do %>
-                  <%= render 'partials/category' %>
+                <% @dichvu_super_categories_array[i].each do |sup| %>
+                  <%= render 'partials/category', sup: sup if sup %>
                 <% end %>
               </div>
             <% end %>
@@ -217,10 +217,10 @@
             <span class="caret category-toggle"></span>
           </a>
           <ul class="dropdown-menu level1" aria-labelledby="dropdownMenu1">
-            <% 5.times do %>
+            <% @linhkien_super_categories_array.size.times do |i| %>
               <div class="row">
-                <% 3.times do %>
-                  <%= render 'partials/category' %>
+                <% @linhkien_super_categories_array[i].each do |sup| %>
+                  <%= render 'partials/category', sup: sup if sup %>
                 <% end %>
               </div>
             <% end %>

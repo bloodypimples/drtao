@@ -416,6 +416,22 @@ input{
   }
 }
 
+// desktop only css
+@media (min-width: 993px){
+  .dropdown-menu{
+    &.level1{
+      > div > div > li{
+        border-bottom: 1px solid #dddddd;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+      }
+      > div > div > ul{
+        padding-left: 0px;
+      }
+    }
+  }
+}
+
 @media (max-width: 992px){
   .category-toggle{
     display: inline-block;

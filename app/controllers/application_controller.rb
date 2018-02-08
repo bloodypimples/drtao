@@ -62,9 +62,12 @@ class ApplicationController < ActionController::Base
   helper_method :cp, :en_url, :de_url, :title, :is_added_to_cart?
 
   def set_layout_vars
-    @sanpham_sub_categories = Category.where(for: "Products")
-    @dichvu_sub_categories = Category.where(for: "Services")
-    @linhkien_sub_categories = Category.where(for: "Parts")
+    @sanpham_super_categories = SuperCategory.where(for: "Products")
+    @sanpham_super_categories_array = @sanpham_super_categories.in_groups_of(3)
+    @dichvu_super_categories = SuperCategory.where(for: "Services")
+    @dichvu_super_categories_array = @dichvu_super_categories.in_groups_of(3)
+    @linhkien_super_categories = SuperCategory.where(for: "Parts")
+    @linhkien_super_categories_array = @linhkien_super_categories.in_groups_of(3)
   end
 
 end

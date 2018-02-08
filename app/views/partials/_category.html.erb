@@ -1,9 +1,17 @@
 <div class="col-sm-4">
-  <li><a href="#">Category</a><span class="caret subcategory-toggle"></span></li>
+  <li>
+    <a href="<%= super_category_short_path(en_url(sup.name)) %>">
+      <%= sup.name %>
+    </a>
+    <span class="caret subcategory-toggle"></span>
+  </li>
   <ul class="level2">
-    <li><a href="#">Sub category</a></li>
-    <li><a href="#">Sub category</a></li>
-    <li><a href="#">Sub category</a></li>
-    <li><a href="#">Sub category</a></li>
+    <% sup.categories.each do |cat| %>
+      <li>
+        <a href="<%= san_pham_path(:'danh-mục' => en_url(cat.name)) %>">
+          <%= cat.name %>
+        </a>
+      </li>
+    <% end %>
   </ul>
 </div>
