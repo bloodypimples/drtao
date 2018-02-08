@@ -183,7 +183,9 @@
         <li class="<%= cp(san_pham_path) %>">
           <a href="<%= san_pham_path %>">
             Sản phẩm
-            <span class="caret category-toggle"></span>
+            <div class="category-toggle">
+              <span class="caret"></span>
+            </div>
           </a>
           <ul class="dropdown-menu level1" aria-labelledby="dropdownMenu1">
             <% @sanpham_super_categories_array.size.times do |i| %>
@@ -199,7 +201,9 @@
         <li class="<%= cp(dich_vu_path) %>">
           <a href="<%= dich_vu_path %>">
             Dịch vụ
-            <span class="caret category-toggle"></span>
+            <div class="category-toggle">
+              <span class="caret"></span>
+            </div>
           </a>
           <ul class="dropdown-menu level1" aria-labelledby="dropdownMenu1">
             <% @dichvu_super_categories_array.size.times do |i| %>
@@ -214,7 +218,9 @@
         <li class="<%= cp(linh_kien_path) %>">
           <a href="<%= linh_kien_path %>">
             Linh kiện
-            <span class="caret category-toggle"></span>
+            <div class="category-toggle">
+              <span class="caret"></span>
+            </div>
           </a>
           <ul class="dropdown-menu level1" aria-labelledby="dropdownMenu1">
             <% @linhkien_super_categories_array.size.times do |i| %>

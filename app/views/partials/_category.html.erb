@@ -3,7 +3,9 @@
     <a href="<%= super_category_short_path(en_url(sup.name)) %>">
       <%= sup.name %>
     </a>
-    <span class="caret subcategory-toggle"></span>
+    <div class="subcategory-toggle">
+      <span class="caret"></span>
+    </div>
   </li>
   <ul class="level2">
     <% sup.categories.each do |cat| %>

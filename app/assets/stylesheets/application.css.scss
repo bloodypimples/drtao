@@ -369,15 +369,17 @@ input{
 }
 
 @media (max-width: 768px) {
-  .subcategory-toggle{
-    display: inline-block;
-    color: #9d9d9d;
+  .subcategory-toggle, .category-toggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
+    width: 36px;
+    height: 36px;
     right: 15px;
     top: 50%;
-    margin-top: -3px;
-    transform: scale(1.5) rotate(0deg);
-    transform-origin: 100% 100%;
+    margin-top: -18px;
+    color: #9d9d9d;
   }
 
   ul.level2{
@@ -410,10 +412,6 @@ input{
   .navbar-form{
     margin: 0px !important;
   }
-  .subcategory-toggle{
-    display: inline-block;
-    color: #9d9d9d;
-  }
 }
 
 // desktop only css
@@ -434,18 +432,15 @@ input{
 
 @media (max-width: 992px){
   .category-toggle{
-    display: inline-block;
-    color: #9d9d9d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
+    width: 36px;
+    height: 36px;
     right: 15px;
     top: 50%;
-    margin-top: -3px;
-    transform: scale(1.5) rotate(0deg);
-    transform-origin: 100% 100%;
-    &.rotated{
-      transform: scale(1.5) rotate(180deg);
-      transform-origin: 40% 50%;
-    }
+    margin-top: -18px;
   }
 
   .dropdown-menu{

@@ -45,14 +45,16 @@ $(document).ready(function () {
     })
   //on mobile, sub-menus are revealed by click
   }else{
-    $(document).on('click', '.navbar li .category-toggle.caret', function(e){
+    $(document).on('click', '.navbar li .category-toggle', function(e){
       e.preventDefault();
+      e.stopPropagation();
       var dropdown = $(this).parents('.navbar li').find('.dropdown-menu')
       dropdown.toggleClass('show')
     })
     // sub-categories toggle
-    $(document).on('click', '.navbar li .subcategory-toggle.caret', function(e){
+    $(document).on('click', '.navbar li .subcategory-toggle', function(e){
       e.preventDefault();
+      e.stopPropagation();
       var subcategory = $(this).parents('.col-sm-4').find('.level2')
       subcategory.toggleClass('show')
     })
